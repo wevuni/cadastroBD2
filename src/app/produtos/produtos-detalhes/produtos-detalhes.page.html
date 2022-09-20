@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>produtos-detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item *ngIf=!modoEdicao>
+    {{produtoSelecionado.nome}}
+  </ion-item>
+  <ion-item *ngIf=!modoEdicao>
+  R$  {{produtoSelecionado.valor}}
+  </ion-item>
+
+  <ion-button *ngIf="!modoEdicao" (click)="iniciarEdicao()">Alterar dados</ion-button>
+
+
+</ion-content>
+<form *ngIf="modoEdicao" (ngSubmit)="encerrarEdicao()">
+  <ion-label>Nome</ion-label>
+  <ion-input [(ngModel)]="produtoSelecionado.nome" name="nome"></ion-input>
+  <ion-label>Valor</ion-label>
+  <ion-input></ion-input>
+  <ion-button type="submit">Salvar</ion-button>
+</form>
+<ion-button routerLink="/produtos-listagem"></ion-button>

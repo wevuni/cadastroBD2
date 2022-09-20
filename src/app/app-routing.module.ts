@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'produtos-listagem',
+    loadChildren: () => import('./produtos/produtos-listagem/produtos-listagem.module').then( m => m.ProdutosListagemPageModule)
+  },
+  {
+    path: 'produtos-detalhes/:id',
+    loadChildren: () => import('./produtos/produtos-detalhes/produtos-detalhes.module').then( m => m.ProdutosDetalhesPageModule)
+  },
+  {
+    path: 'servicos-precos',
+    loadChildren: () => import('./servicos/servicos-precos/servicos-precos.module').then( m => m.ServicosPrecosPageModule)
+  },
+  {
+    path: 'servicos-detalhes/:id',
+    loadChildren: () => import('./servicos/servicos-detalhes/servicos-detalhes.module').then( m => m.ServicosDetalhesPageModule)
+  },
 ];
 
 @NgModule({
